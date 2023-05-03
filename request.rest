@@ -1,0 +1,107 @@
+# USER
+
+# GET ALL USERS
+GET http://localhost:5000/users
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjE2LCJuYW1lIjoiYWRtaW4gYWphIiwiZW1haWwiOiJhZG1pbmFqYUBleGFtcGxlLmNvbSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTY4MzA3ODgyOCwiZXhwIjoxNjgzMDc4ODQzfQ.fGyqet3Kg9sUNSRmCQSyYJMtm9GziYEbFc4RpcFDgtQ
+###
+
+# REGISTER MEMBER/USER
+POST http://localhost:5000/users/register
+Content-Type: application/json
+
+{
+    "name": "gilang",
+    "email": "gilang@example.com",
+    "password": "123",
+    "confPassword": "123"
+}
+
+###
+
+# CREATE ADMIN
+POST http://localhost:5000/admin/register
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjcsIm5hbWUiOiJKb2huIiwiZW1haWwiOiJqb2huQGdtYWlsLmNvbSIsInJvbGUiOiJzdXBlcmFkbWluIiwiaWF0IjoxNjgzMDA1MjkyLCJleHAiOjE2ODMwMDUzMTJ9.VqUhcsRQVALhMGbOUy0t3j41d5LGzU18p1DoDDONrKY
+Content-Type: application/json
+
+{
+    "name": "admin aja",
+    "email": "adminaja@example.com",
+    "password": "123",
+    "confPassword": "123",
+    "role": "admin"
+}
+
+###
+
+
+# LOGIN SUPERADMIN
+POST http://localhost:5000/login
+Content-Type: application/json
+
+{
+    "name": "john",
+    "email": "john.superadmin@gmail.com",
+    "password": "123",
+    "confPassword": "123",
+    "role": "superadmin"
+}
+
+###
+
+# LOGIN MEMBER & ADMIN
+POST http://localhost:5000/login
+Content-Type: application/json
+
+{
+    "name": "admin aja",
+    "email": "adminaja@example.com",
+    "password": "123",
+    "confPassword": "123",
+    "role": "admin"
+}
+
+###
+
+GET http://localhost:5000/token
+
+###
+
+DELETE http://localhost:5000/logout
+
+###
+
+
+
+
+# CARS
+GET http://localhost:5000/cars
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjcsIm5hbWUiOiJKb2huIiwiZW1haWwiOiJqb2huQGdtYWlsLmNvbSIsInJvbGUiOiJzdXBlcmFkbWluIiwiaWF0IjoxNjgzMDAyMjQ1LCJleHAiOjE2ODMwMDIyNjV9.gQ_uYyQY0RZMC5SGCkl5Qrucnqb0mCy3DqeFmhqacM0
+
+###
+POST http://localhost:5000/cars
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjcsIm5hbWUiOiJKb2huIiwiZW1haWwiOiJqb2huQGdtYWlsLmNvbSIsInJvbGUiOiJzdXBlcmFkbWluIiwiaWF0IjoxNjgzMDAyMjk0LCJleHAiOjE2ODMwMDIzMTR9.hJwF6KhnTEGLZiuGHCtztqagNk4Mxrmw2un0HqIiItM
+
+{
+    "nama_mobil": "toyota aja",
+    "harga_sewa": "56000000",
+    "ukuran": "large",
+    "foto": "rush.jpg"
+}
+
+###
+
+PATCH http://localhost:5000/cars/5
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjcsIm5hbWUiOiJKb2huIiwiZW1haWwiOiJqb2huQGdtYWlsLmNvbSIsInJvbGUiOiJzdXBlcmFkbWluIiwiaWF0IjoxNjgzMDAyMzkxLCJleHAiOjE2ODMwMDI0MTF9.xYqSg9EHQ5w1vAUFKG244olUg7muBxE1i7sagP2PJpM
+
+{
+    "nama_mobil": "toyota xenia",
+    "harga_sewa": "1655000",
+    "ukuran": "medium",
+    "foto": "xn.jpg"
+}
+
+###
+DELETE http://localhost:5000/cars/4
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjcsIm5hbWUiOiJKb2huIiwiZW1haWwiOiJqb2huQGdtYWlsLmNvbSIsInJvbGUiOiJzdXBlcmFkbWluIiwiaWF0IjoxNjgzMDAyMzUxLCJleHAiOjE2ODMwMDIzNzF9.Vmfl9MugYDAF2lTSAcBufSU16bnBEVoF8c2gpT8m9zA
