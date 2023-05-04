@@ -30,7 +30,7 @@ router.get('/token', refreshToken)
 router.delete('/logout', Logout)
 
 // crud car
-router.get('/cars', verifyToken, isSuperAdmin, getCars)
+router.get('/cars', verifyToken, getCars)
 router.post('/cars', verifyToken, isSuperAdmin, addCar)
 router.patch('/cars/:id', verifyToken, isSuperAdmin, updateCar)
 router.delete('/cars/:id', verifyToken, isSuperAdmin, deleteCar)
