@@ -14,7 +14,8 @@ const {
 } = require('../controllers/carController.js')
 const {
     verifyToken,
-    isSuperAdmin
+    isSuperAdmin,
+    CarAdminSuperAdmin
 } = require('../middleware/auth.js')
 const {
     refreshToken
@@ -31,8 +32,8 @@ router.delete('/logout', Logout)
 
 // crud car
 router.get('/cars', verifyToken, getCars)
-router.post('/cars', verifyToken, isSuperAdmin, addCar)
-router.patch('/cars/:id', verifyToken, isSuperAdmin, updateCar)
-router.delete('/cars/:id', verifyToken, isSuperAdmin, deleteCar)
+router.post('/cars', verifyToken, CarAdminSuperAdmin, addCar)
+router.patch('/cars/:id', verifyToken, CarAdminSuperAdmin, updateCar)
+router.delete('/cars/:id', verifyToken, CarAdminSuperAdmin, deleteCar)
 
 module.exports = router
