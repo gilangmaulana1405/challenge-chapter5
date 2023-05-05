@@ -80,13 +80,14 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjE2LCJuY
 ###
 POST http://localhost:5000/cars
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjcsIm5hbWUiOiJKb2huIiwiZW1haWwiOiJqb2huQGdtYWlsLmNvbSIsInJvbGUiOiJzdXBlcmFkbWluIiwiaWF0IjoxNjgzMDAyMjk0LCJleHAiOjE2ODMwMDIzMTR9.hJwF6KhnTEGLZiuGHCtztqagNk4Mxrmw2un0HqIiItM
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEyLCJuYW1lIjoiSm9obiIsImVtYWlsIjoiam9obi5zdXBlcmFkbWluQGdtYWlsLmNvbSIsInJvbGUiOiJzdXBlcmFkbWluIiwiaWF0IjoxNjgzMzAyNDkyLCJleHAiOjE2ODMzMDI1MDd9.sA0B19K3TWm9_Rh2QqQExWw8Y6SF12zTaZy4HuqxpfM
 
 {
-    "nama_mobil": "toyota aja",
+    "nama_mobil": "toyota rush aja",
     "harga_sewa": "56000000",
     "ukuran": "large",
-    "foto": "rush.jpg"
+    "foto": "rush.jpg",
+    "available" : true
 }
 
 ###

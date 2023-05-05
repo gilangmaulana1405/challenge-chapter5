@@ -1,12 +1,33 @@
 const {
-    Car
+    Car,
+    User
 } = require('../models')
 
 // CRUD MOBIL
 module.exports = {
     getCars: async (req, res) => {
         try {
-            const cars = await Car.findAll()
+            const cars = await Car.findAll({
+                include: {
+                    model: User,
+                    attributes: ['id', 'email', 'role']
+                },
+                attributes: ['id', 'nama_mobil', 'harga_sewa', 'ukuran', 'foto', 'available', 'createdAt', 'updatedAt']
+            })
+            res.json(cars)
+        } catch (error) {
+            console.log(error)
+        }
+    },
+
+    getCarsByDeleted: async (req, res) => {
+        try {
+            const cars = await Car.findAll({
+                attributes: ['id', 'nama_mobil', 'harga_sewa', 'ukuran', 'foto', 'available', 'createdAt', 'updatedAt'],
+                where: {
+                    available: 0
+                }
+            })
             res.json(cars)
         } catch (error) {
             console.log(error)
@@ -14,24 +35,31 @@ module.exports = {
     },
 
     addCar: async (req, res) => {
+
         const {
             nama_mobil,
             harga_sewa,
             ukuran,
-            foto
+            foto,
+            available,
         } = req.body
 
         try {
-            await Car.create({
+            const newCar = await Car.create({
                 nama_mobil: nama_mobil,
                 harga_sewa: harga_sewa,
                 ukuran: ukuran,
                 foto: foto,
+                available: available,
+                userId: req.user.userId
             })
 
-            res.json({
-                msg: 'data mobil berhasil ditambahkan!'
-            })
+
+            res.status(200).json({
+                success: true,
+                message: "Data berhasil ditambahkan!",
+                data: newCar,
+            });
         } catch (error) {
             console.log(error)
         }

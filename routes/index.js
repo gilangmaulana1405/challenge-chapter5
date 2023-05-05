@@ -8,6 +8,7 @@ const {
 } = require('../controllers/userController.js')
 const {
     getCars,
+    getCarsByDeleted,
     addCar,
     updateCar,
     deleteCar
@@ -32,6 +33,7 @@ router.delete('/logout', Logout)
 
 // crud car
 router.get('/cars', verifyToken, getCars)
+router.get('/cars/deleted', verifyToken, getCarsByDeleted)
 router.post('/cars', verifyToken, CarAdminSuperAdmin, addCar)
 router.patch('/cars/:id', verifyToken, CarAdminSuperAdmin, updateCar)
 router.delete('/cars/:id', verifyToken, CarAdminSuperAdmin, deleteCar)

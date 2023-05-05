@@ -30,7 +30,7 @@ module.exports = {
                     email,
                     role
                 }, process.env.ACCESS_TOKEN_SECRET, {
-                    expiresIn: '15s'
+                    expiresIn: '1d'
                 })
 
                 res.json({

@@ -23,5 +23,13 @@ module.exports = (sequelize, DataTypes) => {
     sequelize,
     modelName: 'User',
   });
+
+  User.associate = function (models) {
+    User.hasOne(models.Car, {
+      foreignKey: "userId",
+    });
+  };
+
+
   return User;
 };

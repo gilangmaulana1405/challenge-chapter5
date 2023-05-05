@@ -17,10 +17,18 @@ module.exports = (sequelize, DataTypes) => {
     nama_mobil: DataTypes.STRING,
     harga_sewa: DataTypes.STRING,
     ukuran: DataTypes.STRING,
-    foto: DataTypes.STRING
+    foto: DataTypes.STRING,
+    userId: DataTypes.INTEGER
   }, {
     sequelize,
     modelName: 'Car',
   });
+
+  Car.associate = function (models) {
+    Car.belongsTo(models.User, {
+      foreignKey: "userId",
+    });
+  };
+
   return Car;
 };
